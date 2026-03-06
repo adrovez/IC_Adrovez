@@ -11,6 +11,8 @@ namespace IC_Adrovez.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
         {
             services.Configure<PathJsonOptions>(config.GetSection(PathJsonOptions.SectionName));
+            services.Configure<ApiKeySettings>(config.GetSection(ApiKeySettings.SectionName));
+
             services.AddScoped<IFacturaRepository, JsonFacturaRepository>();
             return services;
         }

@@ -20,15 +20,14 @@ namespace IC_Adrovez.Application.Services
             return facturas.Select(MapToDto).ToList().AsReadOnly();
         }
 
-        // 2) Facturas por RUT comprador (acepta "12345678-9" o sin guion/puntos)
-        public async Task<IReadOnlyList<FacturaDto>> GetCompradorPorRutAsync(string rutComprador, CancellationToken ct = default)
+        // 2) Facturas por RUT comprador 
+        public async Task<IReadOnlyList<FacturaDto>> GetCompradorPorRutAsync(decimal rutComprador, CancellationToken ct = default)
         {
-            var rutNorm = NormalizeRut(rutComprador);
-
+           
             var facturas = await _repo.GetAllAsync(ct);
 
             var filtered = facturas
-                .Where(f => NormalizeRut($"{f.RutComprador}-{f.DvComprador}") == rutNorm)
+                .Where(f => f.RutComprador == rutComprador)
                 .Select(MapToDto)
                 .ToList()
                 .AsReadOnly();
@@ -64,7 +63,7 @@ namespace IC_Adrovez.Application.Services
             );
         }
 
-       
+
         // 4) Lista de compradores con monto total de compras realizadas
         public async Task<IReadOnlyList<CompradorResumenDto>> GetCompradorMontoTotalAsync(CancellationToken ct = default)
         {
