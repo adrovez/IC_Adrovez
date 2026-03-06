@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IC_Adrovez.Domain.Entities
+﻿namespace IC_Adrovez.Domain.Entities
 {
-    public  class Factura
+    public class Factura
     {
         private readonly List<DetalleFactura> _detalle = new();
 
-        public int NumeroDocumento { get; }
+        public decimal NumeroDocumento { get; }
 
         // Mantengo vendedor/comprador simple (sin PersonaTributaria)
-        public int RutVendedor { get; }
+        public decimal RutVendedor { get; }
         public string DvVendedor { get; }
 
-        public int RutComprador { get; }
+        public decimal RutComprador { get; }
         public string DvComprador { get; }
 
         public string DireccionComprador { get; }
-        public int ComunaComprador { get; }
-        public int RegionComprador { get; }
+        public decimal ComunaComprador { get; }
+        public decimal RegionComprador { get; }
 
         public IReadOnlyCollection<DetalleFactura> DetalleFacturas => _detalle.AsReadOnly();
 
@@ -29,14 +23,14 @@ namespace IC_Adrovez.Domain.Entities
         public decimal TotalFactura => _detalle.Sum(d => d.TotalProducto);
 
         public Factura(
-            int numeroDocumento,
-            int rutVendedor,
+            decimal numeroDocumento,
+            decimal rutVendedor,
             string dvVendedor,
-            int rutComprador,
+            decimal rutComprador,
             string dvComprador,
             string direccionComprador,
-            int comunaComprador,
-            int regionComprador,
+            decimal comunaComprador,
+            decimal regionComprador,
             IEnumerable<DetalleFactura> detalleFactura)
         {
             if (numeroDocumento <= 0)
