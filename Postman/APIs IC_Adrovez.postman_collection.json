@@ -1,0 +1,190 @@
+{
+  "info": {
+    "_postman_id": "092c6c2e-4744-4fa9-8a96-558c6bdb85da",
+    "name": "APIs IC_Adrovez",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "7707510"
+  },
+  "item": [
+    {
+      "name": "Comprador_Top",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "{{HeaderName}}",
+            "value": "{{ApiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{urlBase}}/api/Compradores/top",
+          "host": [
+            "{{urlBase}}"
+          ],
+          "path": [
+            "api",
+            "Compradores",
+            "top"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comprador_Totales",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "{{HeaderName}}",
+            "value": "{{ApiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{urlBase}}/api/Compradores/totales",
+          "host": [
+            "{{urlBase}}"
+          ],
+          "path": [
+            "api",
+            "Compradores",
+            "totales"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Facturas",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "{{HeaderName}}",
+            "value": "{{ApiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{urlBase}}/api/Facturas",
+          "host": [
+            "{{urlBase}}"
+          ],
+          "path": [
+            "api",
+            "Facturas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "FacturaRutComprador",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "{{HeaderName}}",
+            "value": "{{ApiKey}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{urlBase}}/api/Facturas/comprador/{{RutComprador}}",
+          "host": [
+            "{{urlBase}}"
+          ],
+          "path": [
+            "api",
+            "Facturas",
+            "comprador",
+            "{{RutComprador}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "FacturasComunas",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "{{HeaderName}}",
+            "value": "{{ApiKey}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{urlBase}}/api/Facturas/por-comuna",
+          "host": [
+            "{{urlBase}}"
+          ],
+          "path": [
+            "api",
+            "Facturas",
+            "por-comuna"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "FacturaPorComuna",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "{{HeaderName}}",
+            "value": "{{ApiKey}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{urlBase}}/api/Facturas/por-comuna/{{comunaId}}",
+          "host": [
+            "{{urlBase}}"
+          ],
+          "path": [
+            "api",
+            "Facturas",
+            "por-comuna",
+            "{{comunaId}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
